@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use App\Proveedor;
 use App\CategoriaProveedor;
 use Auth;
+use App\ComentarioProveedor;
+use App\Http\Requests\ProveedorStoreRequest;
+use App\RatingProveedor;
 
 class ProveedoresController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -39,7 +42,7 @@ class ProveedoresController extends Controller
         return view('proveedores.create',compact('proveedor','categorias','categoria'));
     }
 
-    public function store(Request $request)
+    public function store(ProveedorStoreRequest $request)
     {
 
         try {
@@ -67,8 +70,28 @@ class ProveedoresController extends Controller
 
     }
 
-    public function show($id)
+    public function show($URL)
     {
+        $proveedor = new Proveedor();
+        $comentario = new ComentarioProveedor();
+
+        $proveedorDetail = $proveedor->getProveedor($URL)->first();
+
+        $categoria    = CategoriaProveedor::findOrFail($proveedorDetail->idCategoria);
+        $comentarios  = $comentario->getAllCommentsbyProveedorId($proveedorDetail->idProveedor);
+        $proveedores  = $proveedor->getOtherProveedores($proveedorDetail->idProveedor);
+
+        $calificacion = RatingProveedor::getCalificacionByIdUserAndIdProveedor(Auth::user()->idUsuario,$proveedorDetail->idProveedor);
+
+        $calificacionUser = ($calificacion == null) ? 0 : $calificacion->calificacion;
+
+        return view('proveedores.show',[
+            'proveedor'=>$proveedorDetail,
+            'categoria'=>$categoria,
+            'comentarios'=>$comentarios,
+            'proveedores'=>$proveedores,
+            'calificacion'=>$calificacionUser
+        ]);
 
     }
 
@@ -95,7 +118,7 @@ class ProveedoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $URL)
+    public function update(ProveedorStoreRequest $request, $URL)
     {
         try {
 

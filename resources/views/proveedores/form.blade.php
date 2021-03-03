@@ -7,7 +7,12 @@
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="email" class="">Nombre del proveedor:</label>
-                <input id="email" type="text" class="form-control form-control-lg " name="proveedor" value="{{$proveedor->proveedor}}" placeholder="Proveedor" required="" autofocus="">
+                <input  type="text" class="form-control form-control-lg " name="proveedor" value="{{$proveedor->proveedor}}" placeholder="Proveedor" autofocus="">
+                @if ($errors->has('proveedor'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('proveedor') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
     </div>
@@ -16,6 +21,11 @@
             <div class="form-group">
                 <label for="password" class="">Categoria:</label>
                 {!! Form::select('idCategoria',$categorias,$proveedor->idCategoria,['class'=>'form-control','placeholder'=>'Selecciona una categoria...']) !!}
+                @if ($errors->has('idCategoria'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('idCategoria') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
     </div>
@@ -31,18 +41,33 @@
             <div class="form-group">
                 <label for="telefono">Ciudad: </label>
                 <input type="text" name="ciudad" class="form-control" value="{{$proveedor->ciudad}}">
+                @if ($errors->has('ciudad'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('idCategoria') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="telefono">Telefono: </label>
                 <input type="text" name="telefono" class="form-control" value="{{$proveedor->telefono}}">
+                @if ($errors->has('telefono'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('idCategoria') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="col-sm-12">
             <div class="form-group">
                 <label for="telefono">Correo electronico: </label>
                 <input type="text" name="correo_electronico" class="form-control" value="{{$proveedor->correo_electronico}}">
+                @if ($errors->has('correo_electronico'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('idCategoria') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="col-sm-12">

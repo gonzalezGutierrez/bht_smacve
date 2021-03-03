@@ -20,6 +20,12 @@ Route::post('proveedores','ProveedoresController@store');
 Route::get('proveedores/{URL}/edit','ProveedoresController@edit');
 Route::put('proveedores/{URL}','ProveedoresController@update');
 
+Route::get('proveedores/{URL}','ProveedoresController@show');
+
+Route::post('proveedores/{URL}/comentar/','ComentariosController@store');
+
+Route::post('proveedores/{URL}/calificar','CalificacionesController@store');
+
 
 
 Route::get('/','FrontEndController@inicio');

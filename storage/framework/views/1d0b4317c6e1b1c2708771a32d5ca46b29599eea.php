@@ -1,7 +1,6 @@
-@extends('layouts.template_01')
-@section('title','Proveedores')
+<?php $__env->startSection('title','Proveedores'); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
 <style media="screen">
 
     .active {
@@ -72,12 +71,12 @@
 
 </style>
 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
-    <section class="page-title-section bg-img cover-background" data-overlay-dark="4" data-background="{{asset('images/bg/educacion_medica.jpg')}}">
+    <section class="page-title-section bg-img cover-background" data-overlay-dark="4" data-background="<?php echo e(asset('images/bg/educacion_medica.jpg')); ?>">
         <div class="container">
 
             <div class="row">
@@ -86,8 +85,8 @@
                 </div>
                 <div class="col-md-12">
                     <ul>
-                        <li><a href="{{asset('/')}}">Inicio</a></li>
-                        <li><a href="{{asset('educacion_medica')}}">Contenido Científico</a></li>
+                        <li><a href="<?php echo e(asset('/')); ?>">Inicio</a></li>
+                        <li><a href="<?php echo e(asset('educacion_medica')); ?>">Contenido Científico</a></li>
                     </ul>
                 </div>
             </div>
@@ -100,22 +99,22 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 order-lg-1 order-md-2 padding-30px-right xs-padding-15px-right sm-margin-30px-top">
                     <div class="side-bar">
                         <div class="widget search">
-                            <form method="GET" role="search" action="{{asset('proveedores/')}}">
-                                <input type="search" id="txtbuscar" name="txtsearch"  placeholder="Buscar ..." value="{{$txtsearch}}">
+                            <form method="GET" role="search" action="<?php echo e(asset('proveedores/')); ?>">
+                                <input type="search" id="txtbuscar" name="txtsearch"  placeholder="Buscar ..." value="<?php echo e($txtsearch); ?>">
                                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </form>
 
-                            <small class="total_registros badge badge-secondary"> {{$proveedores->count()}} proveedores Encontrados</small>
+                            <small class="total_registros badge badge-secondary"> <?php echo e($proveedores->count()); ?> proveedores Encontrados</small>
                         </div>
-                        <a href="{{asset('proveedores/create')}}" class="btn btn-dark btn-sm">Registra un nuevo proveedor</a> <hr>
+                        <a href="<?php echo e(asset('proveedores/create')); ?>" class="btn btn-dark btn-sm">Registra un nuevo proveedor</a> <hr>
                         <div class="widget">
                             <div class="widget-title">
                                 <h6>Categorías</h6>
                             </div>
                             <ul class="categorias">
-                                @foreach($categorias as $categoria)
-                                    <li class=""> <a class="text-uppercase {{$categoria->idCategoria == $categoriaSearch ? 'active' : '' }}" href="{{asset("proveedores?txtsearch=".$txtsearch."&categoria=".$categoria->idCategoria)}}">{{$categoria->categoria}}</a> </li>
-                                @endforeach
+                                <?php $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoria): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li class=""> <a class="text-uppercase <?php echo e($categoria->idCategoria == $categoriaSearch ? 'active' : ''); ?>" href="<?php echo e(asset("proveedores?txtsearch=".$txtsearch."&categoria=".$categoria->idCategoria)); ?>"><?php echo e($categoria->categoria); ?></a> </li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>
                         <div class="widget">
@@ -132,54 +131,57 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 order-lg-2 order-md-1">
-                    @forelse($proveedores as $proveedor)
+                    <?php $__empty_1 = true; $__currentLoopData = $proveedores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proveedor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <div class="blog-list">
                             <div class=blog-list-simple>
                                 <div class="row">
                                     <div class="col-md-9 col-sm-9">
                                         <div class="blog-list-simple-text">
-                                            <span class="category">{{$proveedor->category}}</span>
-                                            <h4>{{$proveedor->proveedor}}</h4>
+                                            <span class="category"><?php echo e($proveedor->category); ?></span>
+                                            <h4><?php echo e($proveedor->proveedor); ?></h4>
                                             <ul class="meta">
                                                 <li>
                                                     <a href="javascript:void(0);">
-                                                        <i class="fas fa-phone" aria-hidden="true"></i>  {{$proveedor->proveedorPhone}}
+                                                        <i class="fas fa-phone" aria-hidden="true"></i>  <?php echo e($proveedor->proveedorPhone); ?>
+
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0);">
-                                                        <i class="fas fa-envelope" aria-hidden="true"></i> {{$proveedor->proveedorEmail}}
+                                                        <i class="fas fa-envelope" aria-hidden="true"></i> <?php echo e($proveedor->proveedorEmail); ?>
+
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0);"  style="font-size:16px;">
                                                         <i class="fas fa-star" style="font-size:16px; color:orange;" aria-hidden="true"></i>
-                                                        {{$proveedor->calificacion}}
+                                                        <?php echo e($proveedor->calificacion); ?>
+
                                                     </a>
                                                 </li>
                                             </ul>
-                                            <p class="text-justify">{{$proveedor->descripcion}}</p>
+                                            <p class="text-justify"><?php echo e($proveedor->descripcion); ?></p>
 
                                             <div class="text-left">
-                                                <a href="{{asset('proveedores/'.$proveedor->proveedorURL)}}" class="butn small mb-3">
+                                                <a href="<?php echo e(asset('proveedores/'.$proveedor->proveedorURL)); ?>" class="butn small mb-3">
                                                     <span>Detalle</span>
                                                 </a>
-                                                @if(Auth::user()->idUsuario == $proveedor->idUsuario)
-                                                    <a href="{{asset('proveedores/'.$proveedor->proveedorURL.'/edit')}}" class="butn small"> Actualizar</span></a>
-                                                @endif
+                                                <?php if(Auth::user()->idUsuario == $proveedor->idUsuario): ?>
+                                                    <a href="<?php echo e(asset('proveedores/'.$proveedor->proveedorURL.'/edit')); ?>" class="butn small"> Actualizar</span></a>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md3 col-sm-3 mt-5">
                                         <p class="clasificacion">
 
-                                            @for ($i=0; $i<5-$proveedor->calificacion; $i++)
+                                            <?php for($i=0; $i<5-$proveedor->calificacion; $i++): ?>
                                                 <span class="fas fa-star" style="font-size:16px;"></span>
-                                            @endfor
+                                            <?php endfor; ?>
 
-                                            @for($i=0; $i<$proveedor->calificacion; $i++)
+                                            <?php for($i=0; $i<$proveedor->calificacion; $i++): ?>
                                                 <span class="fas fa-star" style="color:orange; font-size:16px;"></span>
-                                            @endfor
+                                            <?php endfor; ?>
 
 
 
@@ -189,11 +191,12 @@
                                 <hr>
                             </div>
                         </div>
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <h4>Ningun registro encontrado...</h4>
-                    @endforelse
+                    <?php endif; ?>
                     <div style="margin-bottom: 100px; margin-top: 70px;">
-                        {{$proveedores->appends(['txtsearch'=>$txtsearch])->links()}}
+                        <?php echo e($proveedores->appends(['txtsearch'=>$txtsearch])->links()); ?>
+
                     </div>
                 </div>
             </div>
@@ -203,4 +206,6 @@
     <input type="hidden" id="seccion_smacve" value="#btn-educacion_medica" />
 
 
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.template_01', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

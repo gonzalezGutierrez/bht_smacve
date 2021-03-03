@@ -29,6 +29,11 @@
     <section>
         <div class="container">
             <div class="bg-white padding-30px-all sm-padding-20px-all border border-width-5">
+                @if(Session::has('status_warning'))
+                    <div class="alert alert-warning">
+                        <strong>{{Session::get('status_warning')}}</strong>
+                    </div>
+                @endif
                 <div class="text-center text-uppercase section-heading">
                     <h4>Agrega un nuevo proveedor</h4>
                 </div>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-
+use DB;
 class Proveedor extends Model
 {
 
@@ -44,7 +44,7 @@ class Proveedor extends Model
             })
             ->where('tbl_proveedores.eliminado',0)
             ->orderBy('tbl_proveedores.idProveedor','DESC')
-            ->paginate($this->perPage,[
+            ->select(
                 'tbl_proveedores.idProveedor as proveedorId',
                 'tbl_proveedores.proveedor',
                 'tbl_proveedores.slug as proveedorURL',
@@ -54,8 +54,37 @@ class Proveedor extends Model
                 'tbl_proveedores.descripcion',
                 'tbl_proveedores.idUsuario',
                 'cat_categorias_proveedores.idCategoria as categoryId',
-                'cat_categorias_proveedores.categoria as category'
-            ]);
+                'cat_categorias_proveedores.categoria as category',
+                DB::raw("format((select sum(calificacion)/count(*) from tbl_rating_proveedores where idProveedor = tbl_proveedores.idProveedor),0) as calificacion")
+            )
+            ->paginate($this->perPage);
+    }
+
+    public function getProveedor($URL)
+    {
+        return $this->where('slug',$URL)
+            ->select(
+                'idProveedor',
+                'proveedor',
+                'telefono',
+                'correo_electronico',
+                'pagina_web',
+                'descripcion',
+                'slug',
+                'ciudad',
+                'idUsuario',
+                'idCategoria',
+                DB::raw("format((select sum(calificacion)/count(*) from tbl_rating_proveedores where idProveedor = tbl_proveedores.idProveedor),0) as calificacion")
+            );
+    }
+
+    public function getOtherProveedores($proveedorId)
+    {
+        return $this->where('idProveedor','<>',$proveedorId)
+            ->take(5)
+            ->orderBy('idProveedor','DESC')
+            ->inRandomOrder()
+            ->get();
     }
 
 
