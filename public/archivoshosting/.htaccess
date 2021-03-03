@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^paginaweb/public
+
+RewriteCond %{REQUEST_URI} !\.(txt|tmp)$
+
+
+RewriteRule ^(.*)$ paginaweb/public/$1 [L]

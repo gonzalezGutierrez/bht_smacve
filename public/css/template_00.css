@@ -1,0 +1,397 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FFF;
+    font-size: 14px;
+}
+
+p{
+    font-size: 16px;
+    font-weight: 300;
+}
+a{
+    color: #005387;
+}
+
+.header-small{
+    background-size: cover;
+    background-position: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    color: #FFF;
+    max-height: 280px;
+    margin-bottom: 70px;
+}
+.header-small h2 {
+    font-weight: 300;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Merriweather', serif;
+}
+.header-small h1 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 50px;
+
+}
+
+.title-1{
+
+    font-size: 62px;
+    line-height: 76px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    letter-spacing:normal;
+    margin: 0 0 30px 0;
+
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+
+}
+.title-2{
+
+    font-size: 48px;
+    line-height: 56px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    letter-spacing:normal;
+    margin: 0 0 30px 0;
+
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+
+}
+.subtitle-1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 36px;
+}
+
+.space10 {
+    height: 10px;
+    width:100%;
+    display:block;
+    position:relative;
+}
+.space20 {
+    height: 20px;
+    width:100%;
+    display:block;
+    position:relative;
+}
+.space30 {
+    height: 30px;
+    width:100%;
+    display:block;
+    position:relative;
+}
+.space40 {
+    height: 40px;
+    width:100%;
+    display:block;
+    position:relative;
+}
+.space50 {
+    height: 50px;
+    width:100%;
+    display:block;
+    position:relative;
+}
+.space60{
+    height: 60px;
+    width:100%;
+    display:block;
+    position:relative;
+}
+
+.bg-dark {
+    background-color: #1e1e1e !important;
+}
+.bg-black{
+    background-color: #1e1e1e;
+}
+.bg-white{
+    background-color: #FFF;
+}
+.bg-blue{
+    background-color: #005387;
+}
+
+.color-white{
+    color: #FFF;
+}
+.color-black{
+    color: #000;
+}
+.color-blue{
+    color: #005387;
+}
+.color-light-gray{
+    color: #e9e9e9;
+}
+
+.modal-backdrop.show {
+    opacity: 0.9;
+}
+.modal-header {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.table{
+    font-size: 13px;
+}
+.table tbody tr td{
+    vertical-align: middle;
+}
+
+.card{
+    
+}
+.card .card-header{
+    background-color: #23272b;
+    color: #FFF;
+}
+.card .card-body h3{
+    font-size: 20px;
+    margin: 20px 0;
+    border-bottom: 1px solid #929497;
+    padding-bottom: 10px;
+}
+
+.form-control{
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    line-height: normal !important;
+    height: auto !important;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    font-family: 'Open Sans', sans-serif !important;
+    color: #000 !important;
+}
+.dropzone::after {
+    content: 'Suelta tu imagen aquí o haz click para agregar una' !important;
+    font-size: 18px !important;
+    bottom: 50% !important;
+}
+
+.has-error .g-recaptcha > div{
+    border: 1px solid #a94442;
+}
+input.error,textarea.error,select.error{
+    border: 1px solid red !important;
+    box-shadow: 0 0 8px red inset !important;
+    outline: 0 none;
+}
+label.error{
+    color: red;
+    font-size: 11px !important;
+    font-weight: 300 !important;
+    padding-top: 0 !important;
+    text-align: left !important;
+}
+
+#loading {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    color: #ffffff;
+    display: none;
+    font-size: 30px;
+    height: 100%;
+    padding-top: 15%;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: 99999;
+    text-align: center;
+    vertical-align: middle;
+}
+#loading i {
+    font-size: 110px;
+    margin-bottom: 10px;
+}
+
+#menu-principal .nav-link{
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 12px;
+}
+#menu-principal .nav-link:hover {
+    color: #005387;
+}
+#menu-principal .navbar-nav .active > .nav-link{
+    border-bottom: 2px solid #e4e4e4;
+}
+#menu-principal .navbar-nav.nav-redes a{
+    font-size: 25px;
+}
+
+
+/***************************************************
+*****************UPLOADER IMAGEN*********************
+****************************************************/
+.file-hidden{
+    display: none !important;
+}
+.upload-loading-imagen{
+    color: #449d44;
+    font-size: 10px;
+    display: none;
+}
+.upload-loading-imagen span{
+    color: #00A1DC;
+    font-size: 20px;
+}
+
+#contenedor-imagenes{
+    margin-top: 50px;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+#contenedor-imagenes .imagen-uploaded{
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    height: auto;
+    margin: 8px;
+    padding: 6px;
+    position: relative;
+    text-align: center;
+    width: 162px;
+    display: inline-block;
+
+}
+#contenedor-imagenes .imagen-uploaded img {
+    height: 150px;
+    max-width: 150px;
+}
+#contenedor-imagenes .imagen-uploaded .progress {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    height: 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+#contenedor-imagenes .imagen-uploaded .progress .progress-bar {
+    color: #fff;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+}
+#contenedor-imagenes .imagen-uploaded .tools{
+    margin-top: 15px;
+    padding: 0 3px;
+}
+#contenedor-imagenes .imagen-uploaded .tools a{
+    color: #a94442;
+}
+
+/***************************************************
+*****************UPLOADER ARCHIVO*********************
+****************************************************/
+
+.upload-loading-arhivo{
+    color: #449d44;
+    font-size: 10px;
+    display: none;
+}
+.upload-loading-arhivo span{
+    color: #00A1DC;
+    font-size: 20px;
+}
+
+#contenedor-archivos{
+    margin-top: 50px;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+#contenedor-archivos .archivo-uploaded{
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    height: auto;
+    margin: 8px;
+    padding: 6px;
+    position: relative;
+    text-align: center;
+    width: 162px;
+    display: inline-block;
+}
+#contenedor-archivos .archivo-uploaded .pdf-img{
+    color: #a94442;
+    font-size: 90px;
+    height: 130px;
+    max-width: 150px;
+    text-align: center;
+}
+#contenedor-archivos .archivo-uploaded .pdf-name{
+    font-size: 10px;
+    font-weight: 400;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+#contenedor-archivos .archivo-uploaded .tools{
+    margin-top: 15px;
+    padding: 0 3px;
+}
+#contenedor-archivos .archivo-uploaded .tools a{
+    color: #a94442;
+}
+
+/***************************************************
+*****************UPLOADER VIDEO*********************
+****************************************************/
+
+#contenedor-videos{
+    margin-top: 50px;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+#contenedor-videos .videos-uploaded{
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    height: auto;
+    margin: 8px;
+    padding: 6px;
+    position: relative;
+    text-align: center;
+    width: 162px;
+    display: inline-block;
+}
+#contenedor-videos .videos-uploaded .video{
+    height: 100px;
+    text-align: center;
+}
+#contenedor-videos .videos-uploaded .video-name{
+    font-size: 10px;
+    font-weight: 400;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+#contenedor-videos .videos-uploaded .tools{
+    margin-top: 15px;
+    padding: 0px 3px;
+}
+#contenedor-videos .videos-uploaded .tools a{
+    color: #a94442;
+}
+

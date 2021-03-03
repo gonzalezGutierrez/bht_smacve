@@ -1,0 +1,90 @@
+
+.list-tipo-practica {
+    list-style: none;
+    padding-left: 20px;
+    margin-bottom: 2px;
+}
+
+.lista-oportunidad-voluntariados{
+    font-size: 16px;
+
+}
+
+.lista-oportunidad-voluntariados .puesto{
+    padding: 8px 5px;
+}
+.lista-oportunidad-voluntariados .puesto label{
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.lista-oportunidad-voluntariados .puesto span{
+    width: 13px;
+    display: inline-block;
+    text-align: center;
+}
+
+.lista-oportunidad-voluntariados .subpuesto{
+    margin-left: 20px;
+    padding: 8px 5px;
+}
+.lista-oportunidad-voluntariados .subpuesto label{
+    color: #111;
+    margin-bottom: 0;
+}
+
+
+.lista-oportunidad-voluntariados .btn-link{
+    font-size: 12px;
+}
+.lista-oportunidad-voluntariados .descripcion{
+    margin-left: 30px;
+}
+.lista-oportunidad-voluntariados .descripcion h4{
+    color:#6f6f6f;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.lista-oportunidad-voluntariados .descripcion p{
+    font-size: 14px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+
+.lista-oportunidad-voluntariados .descripcion ul{
+    font-size: 14px;
+    text-align: justify;
+    list-style: circle !important;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+.lista-oportunidad-voluntariados .descripcion ul li{
+    list-style: circle !important;
+}
+
+
+label{
+    color: #000;
+}
+.btn-primary{
+    background-color: #d0ad55;
+    border-color:#d0ad55 ;
+    color: #FFF;
+}
+.btn-primary:hover{
+    background-color: #000;
+    border-color:#000 ;
+    color: #FFF;
+}
+.form-check label{
+    color: #6f6f6f;
+    font-size: 14px;
+}
+
+.alert-warning {
+    color: #FFF;
+    background-color: #992910;
+    border-color: #341b10;
+    font-size: 16px;
+}
