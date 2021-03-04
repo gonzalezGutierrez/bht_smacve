@@ -81,12 +81,12 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Contenido Científico</h1>
+                    <h1>Proveedores</h1>
                 </div>
                 <div class="col-md-12">
                     <ul>
                         <li><a href="<?php echo e(asset('/')); ?>">Inicio</a></li>
-                        <li><a href="<?php echo e(asset('educacion_medica')); ?>">Contenido Científico</a></li>
+                        <li><a href="<?php echo e(asset('proveedores')); ?>">Proveedores</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,14 +106,24 @@
 
                             <small class="total_registros badge badge-secondary"> <?php echo e($proveedores->count()); ?> proveedores Encontrados</small>
                         </div>
-                        <a href="<?php echo e(asset('proveedores/create')); ?>" class="btn btn-dark btn-sm">Registra un nuevo proveedor</a> <hr>
+                        <a href="<?php echo e(asset('proveedores/create')); ?>" class="btn btn-dark btn-sm">Registra un nuevo proveedor</a>
+                        <a href="<?php echo e(asset('proveedores/categorias/create')); ?>" class="btn btn-dark mt-2 btn-sm">Registra nueva categoria</a> <hr>
+                        <hr>
                         <div class="widget">
-                            <div class="widget-title">
+                            <div class="widget-title d-flex justify-content-between">
                                 <h6>Categorías</h6>
                             </div>
                             <ul class="categorias">
                                 <?php $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoria): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li class=""> <a class="text-uppercase <?php echo e($categoria->idCategoria == $categoriaSearch ? 'active' : ''); ?>" href="<?php echo e(asset("proveedores?txtsearch=".$txtsearch."&categoria=".$categoria->idCategoria)); ?>"><?php echo e($categoria->categoria); ?></a> </li>
+                                    <li class="">
+                                        <a class="text-uppercase <?php echo e($categoria->idCategoria == $categoriaSearch ? 'active' : ''); ?>" href="<?php echo e(asset("proveedores?txtsearch=".$txtsearch."&categoria=".$categoria->idCategoria)); ?>">
+                                            <?php echo e($categoria->categoria); ?>
+
+                                        </a>
+                                        <?php if(Auth::user()->idUsuario == $categoria->idUsuario): ?>
+                                            <a href="<?php echo e(asset('proveedores/categorias/'.$categoria->idCategoria.'/edit')); ?>"> <i class="fas fa-edit"></i> </a>
+                                        <?php endif; ?>
+                                    </li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>

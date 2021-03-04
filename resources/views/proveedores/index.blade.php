@@ -82,12 +82,12 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Contenido Científico</h1>
+                    <h1>Proveedores</h1>
                 </div>
                 <div class="col-md-12">
                     <ul>
                         <li><a href="{{asset('/')}}">Inicio</a></li>
-                        <li><a href="{{asset('educacion_medica')}}">Contenido Científico</a></li>
+                        <li><a href="{{asset('proveedores')}}">Proveedores</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,14 +107,23 @@
 
                             <small class="total_registros badge badge-secondary"> {{$proveedores->count()}} proveedores Encontrados</small>
                         </div>
-                        <a href="{{asset('proveedores/create')}}" class="btn btn-dark btn-sm">Registra un nuevo proveedor</a> <hr>
+                        <a href="{{asset('proveedores/create')}}" class="btn btn-dark btn-sm">Registra un nuevo proveedor</a>
+                        <a href="{{asset('proveedores/categorias/create')}}" class="btn btn-dark mt-2 btn-sm">Registra nueva categoria</a> <hr>
+                        <hr>
                         <div class="widget">
-                            <div class="widget-title">
+                            <div class="widget-title d-flex justify-content-between">
                                 <h6>Categorías</h6>
                             </div>
                             <ul class="categorias">
                                 @foreach($categorias as $categoria)
-                                    <li class=""> <a class="text-uppercase {{$categoria->idCategoria == $categoriaSearch ? 'active' : '' }}" href="{{asset("proveedores?txtsearch=".$txtsearch."&categoria=".$categoria->idCategoria)}}">{{$categoria->categoria}}</a> </li>
+                                    <li class="">
+                                        <a class="text-uppercase {{$categoria->idCategoria == $categoriaSearch ? 'active' : '' }}" href="{{asset("proveedores?txtsearch=".$txtsearch."&categoria=".$categoria->idCategoria)}}">
+                                            {{$categoria->categoria}}
+                                        </a>
+                                        @if(Auth::user()->idUsuario == $categoria->idUsuario)
+                                            <a href="{{asset('proveedores/categorias/'.$categoria->idCategoria.'/edit')}}"> <i class="fas fa-edit"></i> </a>
+                                        @endif
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>

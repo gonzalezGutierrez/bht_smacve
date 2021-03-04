@@ -18,4 +18,18 @@ class CategoriaProveedor extends Model
     {
         return $this->where('eliminado',0)->pluck('categoria','idCategoria');
     }
+
+    public function getURL()
+    {
+        return $this->idcategoria ?
+             'proveedores/categorias/'.$this->slug :
+             'proveedores/categorias';
+    }
+
+    public function getMETHOD()
+    {
+        return $this->idcategoria ?
+             'PUT' :
+             'POST';
+    }
 }
