@@ -48,10 +48,16 @@ Route::get('atencion_socio/guias_clinicas','FrontEndController@guias_clinicas');
 Route::get('atencion_socio/estatutos','FrontEndController@estatutos')->middleware('auth');
 Route::get('atencion_socio/pago_anualidad','FrontEndController@pago_anualidad');
 
+Route::get('atencion_socio/actas_de_asamblea/asamblea_negocios_vallarta','FrontEndController@actas_de_asamblea_vallarta')->middleware('auth');
+Route::get('atencion_socio/difusion_especialidad','FrontEndController@difusion_especialidad')->middleware('auth');
+
 /*********************** INVESTIGACIÓN ***************************/
 Route::get('investigacion/comision_actualizacion_gpc/{section}','FrontEndController@comisionActualizacionGPC')->middleware('auth');
 Route::get('investigacion/comite_promocion/','FrontEndController@comitePromocionInicio');
 Route::get('investigacion/comite_promocion/{section}','FrontEndController@comitePromocion')->middleware('auth');
+
+Route::get('investigacion/comite_bioetica/','FrontEndController@comiteBioeticaInicio');
+Route::get('investigacion/comite_bioetica/{section}','FrontEndController@comiteBioetica')->middleware('auth');
 
 
 Route::get('educacion_medica/comision_cirujanos_vasculares_jovenes','FrontEndController@educacion_comision_cirujanos_vasculares_jovenes');
