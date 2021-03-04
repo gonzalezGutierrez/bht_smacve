@@ -242,7 +242,7 @@
                                                 <li><a href="{{asset('mi_cuenta/edit_password')}}">Cambiar Contraseña</a></li>
                                                 <hr/>
 
-                                                <li><a href="{{asset('atencion_socio/guias_clinicas')}}">Guias Clínicas</a></li>
+                                                <li><a href="{{asset('proveedores')}}">Proveedores</a></li>
                                                 <li><a href="{{asset('atencion_socio/estatutos')}}">Estatutos</a></li>
                                                 <li><a href="{{asset('atencion_socio/pago_anualidad')}}">Anualidad 2020</a></li>
                                                 <li>
